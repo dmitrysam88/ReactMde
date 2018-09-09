@@ -6,7 +6,7 @@ import 'react-mde/lib/styles/css/react-mde-all.css';
 
 export interface AppState {mdeState: ReactMdeTypes.MdeState;}
 
-export interface State {mdeState: ReactMdeTypes.MdeState;}
+//export interface State {mdeState: ReactMdeTypes.MdeState;}
 
 class App extends Component {
 
