@@ -3,11 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import ReactMde, {ReactMdeTypes} from 'react-mde';
 import * as Showdown from 'showdown';
+import 'react-mde/lib/styles/css/react-mde-all.css';
+import 'material-design-icons/iconfont/material-icons.css';
 
 
-export interface AppState {
-    mdeState: ReactMdeTypes.MdeState;
-}
+//export interface AppState {mdeState: ReactMdeTypes.MdeState;}
+
+export interface State {mdeState: ReactMdeTypes.MdeState;}
 
 class App extends Component {
 
@@ -22,7 +24,15 @@ class App extends Component {
 
             },
         };
-        this.converter = new Showdown.Converter({tables: true, simplifiedAutoLink: true});
+        this.converter = new Showdown.Converter({
+            tables: true,
+
+            simplifiedAutoLink: true,
+
+            strikethrough: true,
+
+            tasklists: true
+        });
     }
 
     handleValueChange = (mdeState: ReactMdeTypes.MdeState) => {
@@ -48,7 +58,5 @@ class App extends Component {
     );
   }
 }
-
-//storiesOf('Layouts', module).add('vertical', () => <VerticalLayoutStoryComponent />);
 
 export default App;
