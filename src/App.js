@@ -14,31 +14,19 @@ class App extends Component {
     converter: Showdown.Converter;
 
     constructor(props) {
-
         super(props);
-
         this.state = {
-
             mdeState: {
 
                 markdown: '**Hello world!**',
 
             },
-
         };
+        this.converter = new Showdown.Converter({tables: true, simplifiedAutoLink: true});
+    }
 
-        this.converter = new Showdown.Converter({
-
-            tables: true,
-
-            simplifiedAutoLink: true,
-
-            strikethrough: true,
-
-            tasklists: true,
-
-        });
-
+    handleValueChange = (mdeState: ReactMdeTypes.MdeState) => {
+        this.setState({mdeState});
     }
 
   render() {
@@ -60,5 +48,7 @@ class App extends Component {
     );
   }
 }
+
+//storiesOf('Layouts', module).add('vertical', () => <VerticalLayoutStoryComponent />);
 
 export default App;
